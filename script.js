@@ -26,14 +26,22 @@
     archive.appendChild(line);
   });
 
-  /* film panel sound — browsers block audio-on-load everywhere, no way
-     around that, so it starts muted and unmutes on the first click. */
+  /* film panel — plays with sound. every browser blocks unmuted autoplay
+     with zero interaction, no way around that anywhere, from any source.
+     so: try it unmuted immediately, and if blocked, silently retry on
+     the very first interaction with the page — no prompt, no button. */
   var filmVideo = document.getElementById("filmVideo");
-  var soundToggle = document.getElementById("soundToggle");
-  if (filmVideo && soundToggle) {
-    soundToggle.addEventListener("click", function () {
-      filmVideo.muted = false;
-      soundToggle.classList.add("is-hidden");
+  if (filmVideo) {
+    var tryPlay = function () {
+      var p = filmVideo.play();
+      if (p && p.catch) p.catch(function () {});
+    };
+    tryPlay();
+    ["click", "keydown", "touchstart"].forEach(function (evt) {
+      document.addEventListener(evt, function once() {
+        tryPlay();
+        document.removeEventListener(evt, once);
+      });
     });
   }
 })();

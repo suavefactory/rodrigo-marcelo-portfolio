@@ -38,8 +38,8 @@ a:visited{ color:#551A8B; }
 .footer{ margin-top:50px; font-size:13px; color:#000; }
 
 /* film panel — fills the negative space to the right of the text column
-   with Olha e Não Olhes, self-hosted, cropped, autoplay+loop (muted, as
-   every browser requires — unmutes on first click anywhere). */
+   with Olha e Não Olhes, self-hosted, cropped, autoplay+loop with sound.
+   No controls, no mute/pause UI, no context menu. */
 .film-panel{
   position:fixed;
   top:0; right:0; bottom:0;
@@ -54,19 +54,8 @@ a:visited{ color:#551A8B; }
   width:auto; height:auto;
   transform:translate(-50%,-50%);
   object-fit:cover;
+  pointer-events:none;
 }
-.sound-toggle{
-  position:absolute;
-  bottom:16px; right:16px;
-  font-family:sans-serif;
-  font-size:12px;
-  background:rgba(0,0,0,.6);
-  color:#fff;
-  border:1px solid #fff;
-  padding:6px 10px;
-  cursor:pointer;
-}
-.sound-toggle.is-hidden{ display:none; }
 @media (max-width:1000px){
   .film-panel{ display:none; }
 }
