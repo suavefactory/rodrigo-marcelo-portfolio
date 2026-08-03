@@ -10,7 +10,7 @@
       {
         title: "O Que Cada Rapaz Devia Saber",
         role: "Argumentista e Realizador · Curta-Metragem",
-        year: "A DECORRER",
+        year: "A decorrer",
         type: "drive-file",
         id: "1vkS9yi2iX_gDxmae5RpLQ2gPlpJy-lIZ",
         link: "https://drive.google.com/file/d/1vkS9yi2iX_gDxmae5RpLQ2gPlpJy-lIZ/view?usp=sharing"
@@ -18,7 +18,7 @@
       {
         title: "A SIP — Série de Retratos",
         role: "Realizador · Série Visual / Retratos",
-        year: "A DECORRER",
+        year: "A decorrer",
         type: "drive-folder",
         link: "https://drive.google.com/drive/folders/1GW27a2O3W2NGiyMPXvdlALV_rjMlrI-g?usp=sharing"
       },
@@ -88,7 +88,7 @@
       return "https://img.youtube.com/vi/" + project.id + "/hqdefault.jpg";
     }
     if (project.type === "drive-file") {
-      return "https://drive.google.com/thumbnail?id=" + project.id + "&sz=w1000";
+      return "https://drive.google.com/thumbnail?id=" + project.id + "&sz=w200";
     }
     return null;
   }
@@ -103,47 +103,49 @@
     return null;
   }
 
-  function buildCard(project) {
-    var card = document.createElement("div");
-    card.className = "card";
-
-    var media = document.createElement("div");
-    media.className = "card__media";
+  function buildRow(project) {
+    var row = document.createElement("div");
+    row.className = "row";
 
     var thumb = thumbFor(project);
     if (thumb) {
       var img = document.createElement("img");
+      img.className = "row__thumb";
       img.src = thumb;
       img.alt = project.title;
       img.loading = "lazy";
       img.onerror = function () {
-        media.innerHTML = '<div class="card__placeholder">' + project.title + "</div>";
+        var fb = document.createElement("div");
+        fb.className = "row__thumb-fallback";
+        fb.textContent = project.title;
+        img.replaceWith(fb);
       };
-      media.appendChild(img);
+      row.appendChild(img);
     } else {
-      media.innerHTML = '<div class="card__placeholder">' + project.title + "</div>";
+      var fallback = document.createElement("div");
+      fallback.className = "row__thumb-fallback";
+      fallback.textContent = project.title;
+      row.appendChild(fallback);
     }
 
-    var yearBadge = document.createElement("span");
-    yearBadge.className = "card__year";
-    yearBadge.textContent = project.year;
-    media.appendChild(yearBadge);
-
-    var play = document.createElement("div");
-    play.className = "card__play";
-    play.textContent = project.type === "drive-folder" ? "▶ ABRIR PASTA" : "▶ VER PROJETO";
-    media.appendChild(play);
+    var year = document.createElement("span");
+    year.className = "row__year";
+    year.textContent = project.year;
+    row.appendChild(year);
 
     var body = document.createElement("div");
-    body.className = "card__body";
+    body.className = "row__body";
     body.innerHTML =
-      '<div class="card__title">' + project.title + "</div>" +
-      '<div class="card__role">' + project.role + "</div>";
+      '<div class="row__title">' + project.title + "</div>" +
+      '<div class="row__role">' + project.role + "</div>";
+    row.appendChild(body);
 
-    card.appendChild(media);
-    card.appendChild(body);
+    var btn = document.createElement("span");
+    btn.className = "btn btn--outline row__btn";
+    btn.textContent = project.type === "drive-folder" ? "Abrir pasta" : "Ver";
+    row.appendChild(btn);
 
-    card.addEventListener("click", function () {
+    row.addEventListener("click", function () {
       if (project.type === "drive-folder") {
         window.open(project.link, "_blank", "noopener");
       } else {
@@ -151,26 +153,26 @@
       }
     });
 
-    return card;
+    return row;
   }
 
-  function renderGrid(id, list) {
-    var grid = document.getElementById(id);
-    if (!grid) return;
+  function renderList(id, list) {
+    var container = document.getElementById(id);
+    if (!container) return;
     list.forEach(function (p) {
-      grid.appendChild(buildCard(p));
+      container.appendChild(buildRow(p));
     });
   }
 
-  renderGrid("grid-realizacao", PROJECTS.realizacao);
-  renderGrid("grid-design", PROJECTS.design);
+  renderList("list-realizacao", PROJECTS.realizacao);
+  renderList("list-design", PROJECTS.design);
 
   /* ---------- modal ---------- */
   var modal = document.getElementById("modal");
   var modalMedia = document.getElementById("modalMedia");
   var modalTitle = document.getElementById("modalTitle");
   var modalRole = document.getElementById("modalRole");
-  var modalStamp = document.getElementById("modalStamp");
+  var modalOriginal = document.getElementById("modalOriginal");
 
   function openModal(project) {
     var embed = embedFor(project);
@@ -179,11 +181,7 @@
       : "";
     modalTitle.textContent = project.title;
     modalRole.textContent = project.role + " — " + project.year;
-    modalStamp.textContent = "ABRIR ORIGINAL ↗";
-    modalStamp.classList.add("is-visible");
-    modalStamp.onclick = function () {
-      window.open(project.link, "_blank", "noopener");
-    };
+    modalOriginal.href = project.link;
     modal.classList.add("is-open");
     document.body.style.overflow = "hidden";
   }
@@ -200,46 +198,4 @@
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") closeModal();
   });
-
-  /* ---------- burger menu ---------- */
-  var burger = document.getElementById("burger");
-  var header = document.querySelector(".site-header");
-  if (burger) {
-    burger.addEventListener("click", function () {
-      header.classList.toggle("menu-open");
-    });
-    document.querySelectorAll(".nav a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        header.classList.remove("menu-open");
-      });
-    });
-  }
-
-  /* ---------- custom cursor ---------- */
-  var dot = document.getElementById("cursorDot");
-  var isTouch = matchMedia("(hover: none), (pointer: coarse)").matches;
-  if (dot && !isTouch) {
-    var mx = 0, my = 0, cx = 0, cy = 0;
-    window.addEventListener("mousemove", function (e) {
-      mx = e.clientX;
-      my = e.clientY;
-    });
-    (function raf() {
-      cx += (mx - cx) * 0.25;
-      cy += (my - cy) * 0.25;
-      dot.style.transform = "translate(" + cx + "px," + cy + "px) translate(-50%,-50%)";
-      requestAnimationFrame(raf);
-    })();
-
-    document.querySelectorAll("a, button, .card, .tag").forEach(function (el) {
-      el.addEventListener("mouseenter", function () {
-        dot.style.width = "34px";
-        dot.style.height = "34px";
-      });
-      el.addEventListener("mouseleave", function () {
-        dot.style.width = "18px";
-        dot.style.height = "18px";
-      });
-    });
-  }
 })();
