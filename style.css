@@ -32,8 +32,6 @@ a{ color:inherit; text-decoration:none; }
 h1,h2,h3{ font-family:var(--font); font-weight:700; margin:0; }
 p{ margin:0; }
 
-::selection{ background:var(--olive); color:#000; }
-
 .wrap{ max-width:980px; margin:0 auto; padding:0 24px; }
 
 /* ---------- buttons ---------- */
