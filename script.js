@@ -21,7 +21,7 @@
     a.href = p.link;
     a.target = "_blank";
     a.rel = "noopener";
-    a.textContent = p.title + " - " + p.role + " (" + p.year + ")";
+    a.textContent = p.role + " - " + p.title + " (" + p.year + ")";
     line.appendChild(a);
     archive.appendChild(line);
   });

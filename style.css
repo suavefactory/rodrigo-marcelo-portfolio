@@ -1,8 +1,8 @@
 /* ==========================================================================
    RODRIGO MARCELO
-   literal copy of girledm.com's ethos: no design system for the text at
-   all — default browser type, blue underlined links — all the "design"
-   lives in two raw glitched bitmap blocks. everything else is unstyled.
+   literal copy of girledm.com's ethos: no design system at all — default
+   browser type, blue underlined links. the only "design" is the name
+   set big in the same link font/color, unstyled otherwise.
    ========================================================================== */
 
 body{
@@ -25,31 +25,15 @@ a{
 }
 a:visited{ color:#551A8B; }
 
-.logo-wrap{ margin:0 0 10px; }
-.logo-wrap svg{ display:block; width:min(95vw,560px); height:auto; }
-.logo-wrap--small{ margin-top:50px; }
-
-.glitch-block{
-  position:relative;
-  margin:60px 0;
-  padding:110px 20px;
-  text-align:center;
-  background:#000;
-  overflow:hidden;
+.logo{
+  font-family:"Times New Roman", Times, serif;
+  font-weight:normal;
+  color:#0000EE;
+  font-size:clamp(2.2rem,9vw,4.5rem);
+  line-height:1.05;
+  margin:0 0 10px;
 }
-.glitch-block::before{
-  content:"";
-  position:absolute; inset:-15% -10%;
-  background-image:
-    repeating-linear-gradient(45deg, #00e5ff 0 30px, #000 30px 60px),
-    repeating-linear-gradient(-45deg, #00e5ff 0 30px, transparent 30px 60px);
-  filter:url(#texWarp);
-  z-index:0;
-}
-.mascot-logo{ position:relative; z-index:1; display:block; width:min(80vw,340px); margin:0 auto 20px; height:auto; }
-.plain-nav{ position:relative; z-index:1; margin:0; }
-.plain-nav a{ color:#fff; background:rgba(0,0,0,.55); padding:2px 4px; }
-.plain-nav a:visited{ color:#ffd; }
+.logo--small{ margin-top:50px; }
 
 .footer{ margin-top:50px; font-size:13px; color:#000; }
 
