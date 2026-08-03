@@ -25,4 +25,15 @@
     line.appendChild(a);
     archive.appendChild(line);
   });
+
+  /* film panel sound — browsers block audio-on-load everywhere, no way
+     around that, so it starts muted and unmutes on the first click. */
+  var filmVideo = document.getElementById("filmVideo");
+  var soundToggle = document.getElementById("soundToggle");
+  if (filmVideo && soundToggle) {
+    soundToggle.addEventListener("click", function () {
+      filmVideo.muted = false;
+      soundToggle.classList.add("is-hidden");
+    });
+  }
 })();
