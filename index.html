@@ -3,100 +3,163 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rodrigo Marcelo</title>
+<title>★ RODRIGO MARCELO ★ realizador // production designer</title>
 <meta name="description" content="Rodrigo Marcelo — Realizador e Production Designer. Cinema, curtas-metragens, videoclipes.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bungee&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body id="body">
 
-<main class="wrap">
+<div class="noise"></div>
+<div class="scanlines"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-  <section class="hero">
-    <div class="hero__now">
-      <p><i>Olha e Não Olhes, a curta mais recente.</i></p>
-      <a class="btn btn--primary" href="#trabalho">Ver trabalho</a>
-    </div>
-    <h1>Rodrigo Marcelo</h1>
-    <p class="hero__role">Realizador &amp; Production Designer</p>
-  </section>
+<div class="marquee marquee--top">
+  <div class="marquee__track">
+    <span>NÃO É UM SITE DEFAULT ★ ISTO É CAOS COM CONTACTO NO FUNDO ★ SCROLL PARA CONTINUAR ★ REALIZADOR ★ PRODUCTION DESIGNER ★ LISBOA PT ★ </span>
+    <span>NÃO É UM SITE DEFAULT ★ ISTO É CAOS COM CONTACTO NO FUNDO ★ SCROLL PARA CONTINUAR ★ REALIZADOR ★ PRODUCTION DESIGNER ★ LISBOA PT ★ </span>
+  </div>
+</div>
 
-  <nav class="nav">
-    <a href="#sobre">Sobre</a>
-    <a href="#trabalho">Trabalho</a>
-    <a href="#skills">Skills</a>
-    <a href="#contacto">Contacto</a>
+<header class="site-header">
+  <a href="#top" class="logo">RM<span class="logo__spin">✶</span></a>
+  <nav class="nav" id="nav">
+    <a href="#sobre">sobre</a>
+    <a href="#trabalho">TRABALHO</a>
+    <a href="#skills">skillz</a>
+    <a href="#contacto" class="nav__cta">fala comigo →</a>
   </nav>
+  <button class="burger" id="burger" aria-label="menu">☰</button>
+</header>
 
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__stamp hero__stamp--rec">● REC 21 ANOS</div>
+    <div class="hero__stamp hero__stamp--tape">FINALISTA DE CINEMA — LUSÓFONA</div>
+
+    <h1 class="hero__title">
+      <span class="glitch glitch--1" data-text="RODRIGO">RODRIGO</span>
+      <span class="glitch glitch--2" data-text="MARCELO">MARCELO</span>
+    </h1>
+
+    <div class="hero__scatter">
+      <img class="polaroid polaroid--1" src="https://img.youtube.com/vi/1P8BEFIPZhk/hqdefault.jpg" alt="">
+      <img class="polaroid polaroid--2" src="https://img.youtube.com/vi/-Jte4ryqd2k/hqdefault.jpg" alt="">
+      <img class="polaroid polaroid--3" src="https://drive.google.com/thumbnail?id=1wYVyjww1C4QXH9x5TNaErwOWlfM1KiH4&sz=w400" alt="">
+      <div class="polaroid polaroid--4 polaroid--sticker">FIGURINOS ✂</div>
+    </div>
+
+    <p class="hero__role">
+      <span class="hero__role-word hero__role-word--a">REALIZADOR</span>
+      <span class="hero__role-word hero__role-word--b">Production Designer</span>
+      <span class="hero__role-word hero__role-word--c">figurinista</span>
+    </p>
+
+    <a href="#trabalho" class="scroll-cue">▼ VÊ ISTO ▼</a>
+  </section>
+
+  <div class="marquee marquee--tilt-a">
+    <div class="marquee__track">
+      <span>CINEMA — PRODUCTION DESIGN — FIGURINOS — MONTAGEM — ARGUMENTO — CENOGRAFIA — GESTÃO DE SET — ✶ — </span>
+      <span>CINEMA — PRODUCTION DESIGN — FIGURINOS — MONTAGEM — ARGUMENTO — CENOGRAFIA — GESTÃO DE SET — ✶ — </span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
   <section class="about" id="sobre">
-    <p>Estudante finalista de Cinema, 21 anos, focado em realização, production design e figurinos. Experiência prática em curtas-metragens e videoclipes — desde a concetualização e pesquisa visual até à gestão e construção cénica em set. Procuro um estágio curricular para integrar projetos desafiantes e contribuir ativamente para equipas de produção audiovisual.</p>
-
-    <div class="facts">
-      <div class="facts__row">
-        <span class="facts__label">Educação</span>
-        <span>Licenciatura em Cinema e Arte dos Media — Universidade Lusófona, Lisboa (2023–2026, finalista)</span>
+    <h2 class="section-title section-title--a">01. QUEM É</h2>
+    <div class="about__grid">
+      <div class="note">
+        <p>Estudante finalista de Cinema, <mark>21 anos</mark>, focado em <strong>Realização</strong>, <strong>Production Design</strong> e <strong>Figurinos</strong>.</p>
+        <p>Experiência prática em curtas-metragens e videoclipes — desde a concetualização e pesquisa visual até à gestão e construção cénica em set.</p>
+        <p>Procuro um <mark class="mark--b">estágio curricular</mark> para integrar projetos desafiantes, consolidar a linguagem artística e meter as mãos na massa numa equipa de produção a sério.</p>
       </div>
-      <div class="facts__row">
-        <span class="facts__label">Idiomas</span>
-        <span>Português (nativo), Inglês (fluente)</span>
-      </div>
-      <div class="facts__row">
-        <span class="facts__label">Localização</span>
-        <span>Lisboa, Portugal</span>
+      <div class="facts">
+        <div class="fact-stamp fact-stamp--a">
+          <span class="fact-stamp__label">educação</span>
+          Licenciatura em Cinema e Arte dos Media<br>Universidade Lusófona — 2023–2026
+        </div>
+        <div class="fact-stamp fact-stamp--b">
+          <span class="fact-stamp__label">idiomas</span>
+          PT nativo · EN fluente
+        </div>
+        <div class="fact-stamp fact-stamp--c">
+          <span class="fact-stamp__label">base</span>
+          Lisboa, Portugal 📍
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- TRABALHO -->
   <section class="work" id="trabalho">
-    <h2>Realização &amp; Argumento</h2>
-    <div class="list" id="list-realizacao"></div>
+    <h2 class="section-title section-title--b">02. TRABALHO</h2>
 
-    <h2>Production Design</h2>
-    <div class="list" id="list-design"></div>
+    <h3 class="work__category work__category--a"><span>realização & argumento</span></h3>
+    <div class="work__grid" id="grid-realizacao"></div>
 
-    <p class="work__note">Novos projetos, brevemente.</p>
+    <h3 class="work__category work__category--b"><span>PRODUCTION DESIGN</span></h3>
+    <div class="work__grid" id="grid-design"></div>
   </section>
 
+  <div class="marquee marquee--tilt-b">
+    <div class="marquee__track">
+      <span>O QUE CADA RAPAZ DEVIA SABER — A SIP — OLHA E NÃO OLHES — DENIAL — AUTO DE FÉ — 50 ANOS GORILA — WAKING UP — </span>
+      <span>O QUE CADA RAPAZ DEVIA SABER — A SIP — OLHA E NÃO OLHES — DENIAL — AUTO DE FÉ — 50 ANOS GORILA — WAKING UP — </span>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
   <section class="skills" id="skills">
-    <h2>Competências</h2>
-    <div class="skills__row">
-      <span class="skills__label">Áreas práticas</span>
+    <h2 class="section-title section-title--c">03. SKILLZ</h2>
+    <div class="skills__block">
+      <span class="skills__label">áreas práticas</span>
       <div class="tags">
-        <span class="tag">Realização</span>
-        <span class="tag">Production Design</span>
-        <span class="tag">Styling &amp; Figurinos</span>
-        <span class="tag">Montagem</span>
-        <span class="tag">Argumento</span>
-        <span class="tag">Cenografia &amp; Adereços</span>
+        <span class="tag tag--1">realização</span>
+        <span class="tag tag--2">PRODUCTION DESIGN</span>
+        <span class="tag tag--3">styling & figurinos</span>
+        <span class="tag tag--4">montagem</span>
+        <span class="tag tag--5">ARGUMENTO</span>
+        <span class="tag tag--1">cenografia & adereços</span>
       </div>
     </div>
-    <div class="skills__row">
-      <span class="skills__label">Soft skills &amp; métodos</span>
+    <div class="skills__block">
+      <span class="skills__label">soft skills</span>
       <div class="tags">
-        <span class="tag">Trabalho em equipa</span>
-        <span class="tag">Gestão de set</span>
-        <span class="tag">Pesquisa concetual</span>
-        <span class="tag">Resolução de problemas</span>
+        <span class="tag tag--3">trabalho em equipa</span>
+        <span class="tag tag--5">GESTÃO DE SET</span>
+        <span class="tag tag--2">pesquisa concetual</span>
+        <span class="tag tag--4">resolução de problemas</span>
       </div>
     </div>
   </section>
 
-  <section class="contact-block" id="contacto">
-    <h2>Contacto</h2>
-    <p class="contact-block__sub">Aberto a estágios, projetos e colaborações em Lisboa e arredores.</p>
-    <div class="contact-box">
-      <span class="contact-box__label">Email</span>
-      <div class="contact-box__value">rodrigomarcelo2004@gmail.com</div>
-      <span class="contact-box__label">Telefone</span>
-      <div class="contact-box__value">+351 962 807 125</div>
-      <a class="btn btn--primary contact-box__btn" href="mailto:rodrigomarcelo2004@gmail.com">Enviar email</a>
-    </div>
+  <!-- CONTACT -->
+  <section class="contact" id="contacto">
+    <div class="contact__blob"></div>
+    <p class="contact__eyebrow">a sério, é fácil</p>
+    <h2 class="contact__title glitch glitch--3" data-text="BORA FALAR?">BORA FALAR?</h2>
+    <p class="contact__sub">Aberto a estágios, projetos e colaborações em Lisboa e arredores.</p>
+    <a href="mailto:rodrigomarcelo2004@gmail.com" class="contact__link">rodrigomarcelo2004@gmail.com</a>
+    <a href="tel:+351962807125" class="contact__link contact__link--sm">+351 962 807 125</a>
   </section>
 
 </main>
 
 <footer class="site-footer">
-  <p>Rodrigo Marcelo — Portfólio, Lisboa 2026</p>
+  <div class="marquee marquee--bottom">
+    <div class="marquee__track">
+      <span>RODRIGO MARCELO&nbsp;&nbsp;✶&nbsp;&nbsp;PORTFÓLIO&nbsp;&nbsp;✶&nbsp;&nbsp;LISBOA 2026&nbsp;&nbsp;✶&nbsp;&nbsp;NÃO ROUBES ESTE SITE (RESPEITA)&nbsp;&nbsp;✶&nbsp;&nbsp;</span>
+      <span>RODRIGO MARCELO&nbsp;&nbsp;✶&nbsp;&nbsp;PORTFÓLIO&nbsp;&nbsp;✶&nbsp;&nbsp;LISBOA 2026&nbsp;&nbsp;✶&nbsp;&nbsp;NÃO ROUBES ESTE SITE (RESPEITA)&nbsp;&nbsp;✶&nbsp;&nbsp;</span>
+    </div>
+  </div>
+  <p class="footer__credit">FEITO À MÃO EM LISBOA · <span id="visitCount">0001337</span> VISITAS (mais ou menos) · © 2026</p>
 </footer>
 
 <!-- MODAL -->
@@ -104,10 +167,10 @@
   <div class="modal__backdrop" data-close></div>
   <div class="modal__box">
     <button class="modal__close" data-close>✕</button>
+    <div class="modal__stamp" id="modalStamp">ABRIR ORIGINAL ↗</div>
     <div class="modal__media" id="modalMedia"></div>
     <h3 class="modal__title" id="modalTitle"></h3>
     <p class="modal__role" id="modalRole"></p>
-    <a class="modal__original" id="modalOriginal" target="_blank" rel="noopener">Abrir original ↗</a>
   </div>
 </div>
 
